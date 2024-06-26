@@ -93,7 +93,7 @@ resource "aws_ecs_task_definition" "api" {
             containerPath = "/vol/web/static"
             sourceVolume  = "static"
           }
-        ]
+        ],
         logConfiguration = {
           logDriver = "awslogs"
           options = {
@@ -193,14 +193,16 @@ resource "aws_ecs_service" "api" {
   enable_execute_command = true
 
   network_configuration {
-    assign_public_ip = true
+    #assign_public_ip = true
 
     subnets = [
       aws_subnet.private_a.id,
       aws_subnet.private_b.id
     ]
 
-    security_groups = [aws_security_group.ecs_service.id]
+    security_groups = [
+        aws_security_group.ecs_service.id
+        ]
   }
 
   load_balancer {
