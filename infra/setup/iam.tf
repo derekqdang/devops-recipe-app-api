@@ -135,6 +135,7 @@ data "aws_iam_policy_document" "ec2" {
       "ec2:AttachInternetGateway",
       "ec2:ModifyVpcAttribute",
       "ec2:RevokeSecurityGroupIngress",
+      "ec2:DescribeNetworkInterfaceAttribute"
     ]
     resources = ["*"]
   }
@@ -355,6 +356,8 @@ data "aws_iam_policy_document" "efs" {
       "elasticfilesystem:CreateAccessPoint",
       "elasticfilesystem:CreateFileSystem",
       "elasticfilesystem:TagResource",
+      
+      
     ]
     resources = ["*"]
   }
