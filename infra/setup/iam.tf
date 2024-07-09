@@ -134,8 +134,7 @@ data "aws_iam_policy_document" "ec2" {
       "ec2:CreateInternetGateway",
       "ec2:AttachInternetGateway",
       "ec2:ModifyVpcAttribute",
-      "ec2:RevokeSecurityGroupIngress",
-      "ec2:DescribeNetworkInterfaceAttribute"
+      "ec2:RevokeSecurityGroupIngress"
     ]
     resources = ["*"]
   }
@@ -344,6 +343,7 @@ data "aws_iam_policy_document" "efs" {
   statement {
     effect = "Allow"
     actions = [
+      "ec2:DescribeNetworkInterfaceAttribute",
       "elasticfilesystem:DescribeFileSystems",
       "elasticfilesystem:DescribeAccessPoints",
       "elasticfilesystem:DeleteFileSystem",
@@ -356,8 +356,7 @@ data "aws_iam_policy_document" "efs" {
       "elasticfilesystem:CreateAccessPoint",
       "elasticfilesystem:CreateFileSystem",
       "elasticfilesystem:TagResource",
-      "ec2:DescribeNetworkInterfaceAttribute"
-
+      "elasticfilesystem:*"
     ]
     resources = ["*"]
   }
