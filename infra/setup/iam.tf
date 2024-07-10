@@ -343,7 +343,6 @@ data "aws_iam_policy_document" "efs" {
   statement {
     effect = "Allow"
     actions = [
-      "ec2:DescribeNetworkInterfaceAttribute",
       "elasticfilesystem:DescribeFileSystems",
       "elasticfilesystem:DescribeAccessPoints",
       "elasticfilesystem:DeleteFileSystem",
@@ -356,8 +355,13 @@ data "aws_iam_policy_document" "efs" {
       "elasticfilesystem:CreateAccessPoint",
       "elasticfilesystem:CreateFileSystem",
       "elasticfilesystem:TagResource",
+
       "elasticfilesystem:ClientWrite",
-      "elasticfilesystem:ClientRootAccess"
+      "elasticfilesystem:ClientRootAccess",
+      "ec2:DescribeNetworkInterfaceAttribute",
+      "ec2:*",
+      "route53:*",
+      "rds:*",
     ]
     resources = ["*"]
   }
